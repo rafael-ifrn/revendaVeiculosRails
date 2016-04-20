@@ -1,0 +1,32 @@
+pt:
+ fabricantes:
+  new:
+   title: Cadastro
+  edit:
+   title: Editar
+  show:
+   title: "Detalhe"
+   edit: 'Editar'
+   descricao: "Descrição: %{descricao}"
+
+
+ links:
+  back: Voltar
+  show: Detalhar
+  edit: Editar
+  destroy: Apagar
+  new: Cadastrar
+
+ general:
+  form_error: Há erros no formulário, por favor verifique.
+
+ questions:
+  sure: Você tem certeza?
+
+ activerecord:
+  models:
+   fabricante: Fabricante
+  attributes:
+   fabricante:
+    descricao: Descrição
+

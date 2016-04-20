@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
+<h1><%= t '.title' %></h1>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @fabricante.descricao %>
-</p>
+<ul>
+  <li><%= t '.descricao', descricao: @fabricante.descricao %></li>
+</ul>
 
-<%= link_to 'Edit', edit_fabricante_path(@fabricante) %> |
-<%= link_to 'Back', fabricantes_path %>
+<%= link_to t('.edit'), edit_fabricante_path(@fabricante) %> |
+<%= link_to t('links.back'), fabricantes_path %>
