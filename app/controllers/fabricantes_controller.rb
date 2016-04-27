@@ -28,7 +28,7 @@ class FabricantesController < ApplicationController
 
     respond_to do |format|
       if @fabricante.save
-        format.html { redirect_to @fabricante, notice: 'Fabricante was successfully created.' }
+        format.html { redirect_to @fabricante, notice: t('message.create_success') }
         format.json { render :show, status: :created, location: @fabricante }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class FabricantesController < ApplicationController
   def update
     respond_to do |format|
       if @fabricante.update(fabricante_params)
-        format.html { redirect_to @fabricante, notice: 'Fabricante was successfully updated.' }
+        format.html { redirect_to @fabricante, notice: t('message.update_success') }
         format.json { render :show, status: :ok, location: @fabricante }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class FabricantesController < ApplicationController
   def destroy
     @fabricante.destroy
     respond_to do |format|
-      format.html { redirect_to fabricantes_url, notice: 'Fabricante was successfully destroyed.' }
+      format.html { redirect_to fabricantes_url, notice: t('message.destroy_success') }
       format.json { head :no_content }
     end
   end

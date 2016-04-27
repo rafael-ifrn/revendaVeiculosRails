@@ -20,6 +20,11 @@ pt:
  general:
   form_error: Há erros no formulário, por favor verifique.
 
+ message:
+  update_success: Atualizado com sucesso.
+  create_success: Criado com sucesso.
+  destroy_success: Removido com sucesso.
+
  questions:
   sure: Você tem certeza?
 

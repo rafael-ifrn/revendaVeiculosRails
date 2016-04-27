@@ -2,5 +2,16 @@
 
 <%= render 'form' %>
 
-<%= link_to t('links.show'), @fabricante %> |
-<%= link_to t('links.back'), fabricantes_path %>
+<div class="text-center">
+	<a href="<%= fabricantes_path %>" class="btn btn-default btn-xs">
+	  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <%= t('links.back') %>
+	</a>
+	
+	<a href="/fabricantes" class="btn btn-primary btn-xs">
+	  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <%= t('links.show') %>
+	</a>
+	
+</div>
+
+<!--  <%= link_to t('links.show'), @fabricante %> -->
+
