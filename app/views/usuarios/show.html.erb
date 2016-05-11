@@ -1,0 +1,24 @@
+<h2><%= t '.title' %></h2>
+
+<ul>
+  <li><%= t '.email', nome: @usuario.email %></li>
+  <li><%= t 'activerecord.attributes.usuario.nome' %>: <%= @usuario.nome %></li>
+  <li><%= t 'activerecord.attributes.usuario.login' %>: <%= @usuario.login %></li>
+  <li><%= t 'activerecord.attributes.usuario.cpf' %>: <%= @usuario.cpf %></li>
+  <li><%= t 'activerecord.attributes.usuario.email' %>: <%= @usuario.email %></li>
+  <li><%= t 'activerecord.attributes.usuario.telefone' %>: <%= @usuario.telefone %></li>
+</ul>
+
+<div class="text-center">
+	<a href="<%= usuarios_path %>" class="btn btn-default btn-xs">
+	  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <%= t('links.back') %>
+	</a>
+	
+	<a href="<%= edit_usuario_path(@usuario) %>" class="btn btn-warning btn-xs">
+	  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <%= t('links.edit') %>
+	</a>
+	
+	<a href="<%= usuario_path(@usuario) %>" class="btn btn-danger btn-xs" data-confirm="<%= t('questions.sure') %>" rel="nofollow" data-method="delete" >
+	  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <%= t('links.destroy') %>
+	</a>
+</div>

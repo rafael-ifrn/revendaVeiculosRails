@@ -1,14 +1,43 @@
 pt:
  fabricantes:
   new:
-   title: Cadastro
+   title: Cadastro de Fabricante
   edit:
-   title: Editar
+   title: Editar Fabricante
   show:
-   title: "Detalhe"
+   title: "Detalhe do Fabricante"
    edit: 'Editar'
    descricao: "Descrição: %{descricao}"
 
+ tipo_veiculos:
+  new:
+   title: Cadastro do Tipo de veículo
+  edit:
+   title: Editar Tipo de veículo
+  show:
+   title: "Detalhe do Tipo de veículo"
+   edit: 'Editar'
+   descricao: "Descrição: %{descricao}"
+
+ modelos:
+  new:
+   title: Cadastro do Modelo
+  edit:
+   title: Editar Modelo
+  show:
+   title: "Detalhe do Modelo"
+   edit: 'Editar'
+   descricao: "Descrição: %{descricao}"
+
+ usuarios:
+  new:
+   title: Cadastro do Usuário
+  edit:
+   title: Editar Usuário
+  show:
+   title: "Detalhe do Usuário"
+   edit: 'Editar'
+   data: "%{campo} aa: %{valor}"
 
  links:
   back: Voltar
@@ -16,6 +45,7 @@ pt:
   edit: Editar
   destroy: Apagar
   new: Cadastrar
+
 
  general:
   form_error: Há erros no formulário, por favor verifique.
@@ -31,7 +61,21 @@ pt:
  activerecord:
   models:
    fabricante: Fabricante
+   usuario: Usuário
+   tipo_veiculo: Tipo de veículo
   attributes:
    fabricante:
     descricao: Descrição
+  attributes:
+   tipo_veiculo:
+    descricao: Descrição
+  attributes:
+   modelo:
+    descricao: Descrição
+   usuario:
+    email: E-mail
+    password_confirmation: Confirmação da senha
+    password: Senha
+    cpf: CPF
+
 

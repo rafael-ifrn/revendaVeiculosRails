@@ -1,0 +1,105 @@
+
+<%= form_for(@usuario) do |f| %>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <% if @usuario.errors.any? %>
+          <div class="alert alert-danger">
+            <%= t 'general.form_error' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@usuario.errors.has_key? :nome) ? "has-error" : ""  %>">
+          <%= f.label :nome, :class => "control-label" %>
+          <%= f.text_field :nome, :class => "form-control" %>
+          <%= bootstrap_erro @usuario, :nome %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@usuario.errors.has_key? :cpf) ? "has-error" : ""  %>">
+          <%= f.label :cpf, :class => "control-label" %>
+          <%= f.text_field :cpf, :class => "form-control" %>
+          <%= bootstrap_erro @usuario, :cpf %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@usuario.errors.has_key? :email) ? "has-error" : ""  %>">
+          <%= f.label :email, :class => "control-label" %>
+          <%= f.text_field :email, :class => "form-control" %>
+          <%= bootstrap_erro @usuario, :email %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@usuario.errors.has_key? :telefone) ? "has-error" : ""  %>">
+          <%= f.label :telefone, :class => "control-label" %>
+          <%= f.text_field :telefone, :class => "form-control" %>
+          <%= bootstrap_erro @usuario, :telefone %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@usuario.errors.has_key? :login) ? "has-error" : ""  %>">
+          <%= f.label :login, :class => "control-label" %>
+          <%= f.text_field :login, :class => "form-control" %>
+          <%= bootstrap_erro @usuario, :login %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@usuario.errors.has_key? :password) ? "has-error" : ""  %>">
+          <%= f.label :password, :class => "control-label" %>
+          <%= f.password_field :password, :class => "form-control" %>
+          <%= bootstrap_erro @usuario, :password %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@usuario.errors.has_key? :password_confirmation) ? "has-error" : ""  %>">
+          <%= f.label :password_confirmation, :class => "control-label" %>
+          <%= f.password_field :password_confirmation, :class => "form-control" %>
+          <%= bootstrap_erro @usuario, :password_confirmation %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="actions text-right">
+          <%= f.submit :class => "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<% end %>

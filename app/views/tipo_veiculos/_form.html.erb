@@ -1,0 +1,63 @@
+<!--
+<%= form_for(@tipo_veiculo) do |f| %>
+  <% if @tipo_veiculo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tipo_veiculo.errors.count, "error") %> prohibited this tipo_veiculo from being saved:</h2>
+
+      <ul>
+      <% @tipo_veiculo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descricao %><br>
+    <%= f.text_field :descricao %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+-->
+
+<%= form_for(@tipo_veiculo) do |f| %>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <% if @tipo_veiculo.errors.any? %>
+          <div class="alert alert-danger">
+            <%= t 'general.form_error' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@tipo_veiculo.errors.has_key? :descricao) ? "has-error" : ""  %>">
+          <%= f.label :descricao, :class => "control-label" %>
+          <%= f.text_field :descricao, :class => "form-control" %>
+          <%= bootstrap_erro @tipo_veiculo, :descricao %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="actions text-right">
+          <%= f.submit :class => "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<% end %>

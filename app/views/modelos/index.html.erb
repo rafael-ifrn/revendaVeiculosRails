@@ -1,4 +1,4 @@
-<h2>Fabricantes</h2>
+<h2>Modelos</h2>
 
 
 <div class="container-fluid">
@@ -10,19 +10,23 @@
         <thead>
           <tr>
             <th>Descrição</th>
+            <th>Fabricante</th>
+            <th>Tipo</th>
             <th></th>
           </tr>
         </thead>
 
         <tbody>
-          <% @fabricantes.each do |fabricante| %>
+          <% @modelos.each do |modelo| %>
             <tr>
-              <td><%= link_to fabricante.descricao, fabricante %></td>
+              <td><%= link_to modelo.descricao, modelo %></td>
+              <td><%= modelo.fabricante_id %></td>
+              <td><%= modelo.tipo_veiculo_id %></td>
               <td class="text-right">
-                <a href="<%= edit_fabricante_path(fabricante) %>" class="btn btn-warning btn-xs">
+                <a href="<%= edit_modelo_path(modelo) %>" class="btn btn-warning btn-xs">
                   <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <%= t('links.edit') %>
                 </a>
-                <a href="<%= fabricante_path(fabricante) %>" class="btn btn-danger btn-xs" data-confirm="<%= t('questions.sure') %>" rel="nofollow" data-method="delete" >
+                <a href="<%= modelo_path(modelo) %>" class="btn btn-danger btn-xs" data-confirm="<%= t('questions.sure') %>" rel="nofollow" data-method="delete" >
                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <%= t('links.destroy') %>
                 </a>
 
@@ -39,7 +43,7 @@
 <br>
 
 <div class="text-center">
-  <a href="<%= new_fabricante_path %>" class="btn btn-default">
+  <a href="<%= new_modelo_path %>" class="btn btn-default">
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <%= t('links.new') %>
   </a>
 </div>

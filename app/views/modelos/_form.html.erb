@@ -1,0 +1,62 @@
+<%= form_for(@modelo) do |f| %>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <% if @modelo.errors.any? %>
+          <div class="alert alert-danger">
+            <%= t 'general.form_error' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@modelo.errors.has_key? :descricao) ? "has-error" : ""  %>">
+          <%= f.label :descricao, :class => "control-label" %>
+          <%= f.text_field :descricao, :class => "form-control" %>
+          <%= bootstrap_erro @modelo, :descricao %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@modelo.errors.has_key? :fabricante_id) ? "has-error" : ""  %>">
+          <%= f.label :fabricante_id %><br>
+          <%= f.select(:fabricante_id, Fabricante.all.collect {|a| [a.descricao, a.id]}) %>
+          <%= bootstrap_erro @modelo, :fabricante_id %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@modelo.errors.has_key? :tipo_veiculo_id) ? "has-error" : ""  %>">
+          <%= f.label :tipo_veiculo_id %><br>
+          <%= f.select(:tipo_veiculo_id, TipoVeiculo.all.collect {|a| [a.descricao, a.id]}) %>
+          <%= bootstrap_erro @modelo, :tipo_veiculo_id %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="actions text-right">
+          <%= f.submit :class => "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<% end %>
