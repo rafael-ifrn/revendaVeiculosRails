@@ -1,0 +1,19 @@
+<h2><%= t '.title' %></h2>
+
+<ul>
+  <li><%= t '.descricao', descricao: @forma_pagamento.descricao %></li>
+</ul>
+
+<div class="text-center">
+	<a href="<%= forma_pagamentos_path %>" class="btn btn-default btn-xs">
+	  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <%= t('links.back') %>
+	</a>
+	
+	<a href="<%= edit_forma_pagamento_path(@forma_pagamento) %>" class="btn btn-warning btn-xs">
+	  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <%= t('links.edit') %>
+	</a>
+	
+	<a href="<%= forma_pagamento_path(@forma_pagamento) %>" class="btn btn-danger btn-xs" data-confirm="<%= t('questions.sure') %>" rel="nofollow" data-method="delete" >
+	  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <%= t('links.destroy') %>
+	</a>
+</div>

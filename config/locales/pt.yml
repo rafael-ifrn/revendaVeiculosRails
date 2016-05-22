@@ -39,12 +39,33 @@ pt:
    edit: 'Editar'
    data: "%{campo} aa: %{valor}"
 
+ forma_pagamentos:
+  index:
+   title: Formas de pagamento
+  new:
+   title: Cadastro da Forma de pagamento
+  edit:
+   title: Editar Forma de pagamento
+  show:
+   title: "Detalhe da Forma de pagamento"
+   edit: 'Editar'
+   descricao: "Descrição: %{descricao}"
+
+
  links:
   back: Voltar
   show: Detalhar
   edit: Editar
   destroy: Apagar
   new: Cadastrar
+
+ signup:
+  confirm_email:
+   subject: 'Revendas - Confirme seu email'
+   title: 'Seja bem vindo ao Revendss!'
+   body: 'Seja bem vindo ao Colcho.net, %{full_name}. O Colcho.net é o lugar ideal para você alugar aquele quarto sobrando na sua casa e ainda conhecer gente do mundo inteiro.'
+  confirm_link_html: 'Para você começar a usar o site, acesse o  link: %{link}'
+  thanks_html: 'Obrigado por se cadastrar no %{link}.'
 
 
  general:
@@ -63,13 +84,12 @@ pt:
    fabricante: Fabricante
    usuario: Usuário
    tipo_veiculo: Tipo de veículo
+   forma_pagamento: Forma de pagamento
   attributes:
    fabricante:
     descricao: Descrição
-  attributes:
    tipo_veiculo:
     descricao: Descrição
-  attributes:
    modelo:
     descricao: Descrição
    usuario:
@@ -77,5 +97,7 @@ pt:
     password_confirmation: Confirmação da senha
     password: Senha
     cpf: CPF
+   forma_pagamento:
+    descricao: Descrição
 
 
