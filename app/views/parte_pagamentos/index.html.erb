@@ -1,0 +1,47 @@
+<h2><%= t '.title' %></h2>
+
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th><%= t 'activerecord.attributes.parte_pagamento.quantia' %></th>
+            <th><%= t 'activerecord.attributes.parte_pagamento.forma_pagamento_id' %></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @parte_pagamentos.each do |parte_pagamento| %>
+            <tr>
+              <td><%= link_to parte_pagamento.quantia, parte_pagamento %></td>
+              <td><%= FormaPagamento.find(parte_pagamento.forma_pagamento_id).descricao %></td>
+              <td class="text-right">
+                <a href="<%= edit_parte_pagamento_path(parte_pagamento) %>" class="btn btn-warning btn-xs">
+                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <%= t('links.edit') %>
+                </a>
+                <a href="<%= parte_pagamento_path(parte_pagamento) %>" class="btn btn-danger btn-xs" data-confirm="<%= t('questions.sure') %>" rel="nofollow" data-method="delete" >
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <%= t('links.destroy') %>
+                </a>
+
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<br>
+
+<div class="text-center">
+  <a href="<%= new_parte_pagamento_path %>" class="btn btn-default">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <%= t('links.new') %>
+  </a>
+</div>

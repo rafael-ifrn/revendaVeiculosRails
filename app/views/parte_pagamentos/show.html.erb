@@ -1,0 +1,25 @@
+<h2><%= t '.title' %></h2>
+
+<p>
+  <strong><%= t 'activerecord.attributes.parte_pagamento.quantia' %>:</strong>
+  <%= @parte_pagamento.quantia %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.parte_pagamento.forma_pagamento_id' %>:</strong>
+  <%= @parte_pagamento.forma_pagamento.descricao %>
+</p>
+
+<div class="text-center">
+	<a href="<%= parte_pagamentos_path %>" class="btn btn-default btn-xs">
+	  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <%= t('links.back') %>
+	</a>
+	
+	<a href="<%= edit_parte_pagamento_path(@parte_pagamento) %>" class="btn btn-warning btn-xs">
+	  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <%= t('links.edit') %>
+	</a>
+	
+	<a href="<%= parte_pagamentos_path(@parte_pagamento) %>" class="btn btn-danger btn-xs" data-confirm="<%= t('questions.sure') %>" rel="nofollow" data-method="delete" >
+	  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <%= t('links.destroy') %>
+	</a>
+</div>

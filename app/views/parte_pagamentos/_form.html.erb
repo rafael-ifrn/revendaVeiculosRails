@@ -1,0 +1,49 @@
+<%= form_for(@parte_pagamento) do |f| %>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <% if @parte_pagamento.errors.any? %>
+          <div class="alert alert-danger">
+            <%= t 'general.form_error' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@parte_pagamento.errors.has_key? :quantia) ? "has-error" : ""  %>">
+          <%= f.label :quantia, :class => "control-label" %>
+          <%= f.text_field :quantia, :class => "form-control" %>
+          <%= bootstrap_erro @parte_pagamento, :quantia %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@parte_pagamento.errors.has_key? :forma_pagamento_id) ? "has-error" : ""  %>">
+          <%= f.label :forma_pagamento_id %><br>
+          <%= f.select(:forma_pagamento_id, FormaPagamento.all.collect {|a| [a.descricao, a.id]}) %>
+          <%= bootstrap_erro @parte_pagamento, :forma_pagamento_id %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="actions text-right">
+          <%= f.submit :class => "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<% end %>

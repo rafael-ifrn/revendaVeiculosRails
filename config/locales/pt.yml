@@ -51,6 +51,18 @@ pt:
    edit: 'Editar'
    descricao: "Descrição: %{descricao}"
 
+ parte_pagamentos:
+  index:
+   title: Parte do pagamento
+  new:
+   title: Cadastro da Parte do pagamento
+  edit:
+   title: Editar Parte do pagamento
+  show:
+   title: "Detalhe da Parte do pagamento"
+   edit: 'Editar'
+   descricao: "Quantia: %{quantia}"
+
 
  links:
   back: Voltar
@@ -85,6 +97,7 @@ pt:
    usuario: Usuário
    tipo_veiculo: Tipo de veículo
    forma_pagamento: Forma de pagamento
+   parte_pagamento: Parte do pagamento
   attributes:
    fabricante:
     descricao: Descrição
@@ -99,5 +112,8 @@ pt:
     cpf: CPF
    forma_pagamento:
     descricao: Descrição
+   parte_pagamento:
+    quantia: Quantia
+    forma_pagamento_id: Forma de pagamento
 
 
