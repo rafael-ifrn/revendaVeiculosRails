@@ -1,0 +1,30 @@
+<h2><%= t '.title' %></h2>
+
+<p>
+  <strong><%= t 'activerecord.attributes.compra.data' %>:</strong>
+  <%= @compra.data %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.compra.preco' %>:</strong>
+  <%= @compra.preco %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.compra.obs' %>:</strong>
+  <%= @compra.obs %>
+</p>
+
+<div class="text-center">
+	<a href="<%= compras_path %>" class="btn btn-default btn-xs">
+	  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <%= t('links.back') %>
+	</a>
+	
+	<a href="<%= edit_compra_path(@compra) %>" class="btn btn-warning btn-xs">
+	  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <%= t('links.edit') %>
+	</a>
+	
+	<a href="<%= compras_path(@compra) %>" class="btn btn-danger btn-xs" data-confirm="<%= t('questions.sure') %>" rel="nofollow" data-method="delete" >
+	  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <%= t('links.destroy') %>
+	</a>
+</div>

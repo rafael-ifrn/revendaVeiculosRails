@@ -1,0 +1,60 @@
+<%= form_for(@compra) do |f| %>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <% if @compra.errors.any? %>
+          <div class="alert alert-danger">
+            <%= t 'general.form_error' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@compra.errors.has_key? :data) ? "has-error" : ""  %>">
+          <%= f.label :data, :class => "control-label" %>
+          <%= f.text_field :data, :class => "form-control" %>
+          <%= bootstrap_erro @compra, :data %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@compra.errors.has_key? :preco) ? "has-error" : ""  %>">
+          <%= f.label :preco, :class => "control-label" %>
+          <%= f.text_field :preco, :class => "form-control" %>
+          <%= bootstrap_erro @compra, :preco %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@compra.errors.has_key? :obs) ? "has-error" : ""  %>">
+          <%= f.label :obs, :class => "control-label" %>
+          <%= f.text_field :obs, :class => "form-control" %>
+          <%= bootstrap_erro @compra, :obs %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="actions text-right">
+          <%= f.submit :class => "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<% end %>

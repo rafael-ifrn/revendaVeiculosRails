@@ -1,0 +1,49 @@
+<h2><%= t '.title' %></h2>
+
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th><%= t 'activerecord.attributes.compra.data' %></th>
+            <th><%= t 'activerecord.attributes.compra.preco' %></th>
+            <th><%= t 'activerecord.attributes.compra.obs' %></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @compras.each do |compra| %>
+            <tr>
+              <td><%= link_to compra.data, compra %></td>
+              <td><%= compra.preco %></td>
+              <td><%= compra.obs %></td>
+              <td class="text-right">
+                <a href="<%= edit_compra_path(compra) %>" class="btn btn-warning btn-xs">
+                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <%= t('links.edit') %>
+                </a>
+                <a href="<%= compra_path(compra) %>" class="btn btn-danger btn-xs" data-confirm="<%= t('questions.sure') %>" rel="nofollow" data-method="delete" >
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <%= t('links.destroy') %>
+                </a>
+
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<br>
+
+<div class="text-center">
+  <a href="<%= new_compra_path %>" class="btn btn-default">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <%= t('links.new') %>
+  </a>
+</div>

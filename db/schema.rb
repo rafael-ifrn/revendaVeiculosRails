@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160522231322) do
+ActiveRecord::Schema.define(version: 20160525120640) do
+
+  create_table "compras", force: :cascade do |t|
+    t.date     "data"
+    t.decimal  "preco"
+    t.text     "obs"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "fabricantes", force: :cascade do |t|
     t.string   "descricao"
@@ -41,8 +49,10 @@ ActiveRecord::Schema.define(version: 20160522231322) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "forma_pagamento_id"
+    t.integer  "compra_id"
   end
 
+  add_index "parte_pagamentos", ["compra_id"], name: "index_parte_pagamentos_on_compra_id"
   add_index "parte_pagamentos", ["forma_pagamento_id"], name: "index_parte_pagamentos_on_forma_pagamento_id"
 
   create_table "tipo_veiculos", force: :cascade do |t|

@@ -63,6 +63,16 @@ pt:
    edit: 'Editar'
    descricao: "Quantia: %{quantia}"
 
+ compras:
+  index:
+   title: Compra
+  new:
+   title: Cadastro da Compra
+  edit:
+   title: Editar Compra
+  show:
+   title: "Detalhe da Compra"
+   edit: 'Editar'
 
  links:
   back: Voltar
@@ -98,6 +108,7 @@ pt:
    tipo_veiculo: Tipo de veículo
    forma_pagamento: Forma de pagamento
    parte_pagamento: Parte do pagamento
+   compra: Compra
   attributes:
    fabricante:
     descricao: Descrição
@@ -115,5 +126,9 @@ pt:
    parte_pagamento:
     quantia: Quantia
     forma_pagamento_id: Forma de pagamento
+   compra:
+    data: Data
+    preco: Preço
+    obs: Observação
 
 

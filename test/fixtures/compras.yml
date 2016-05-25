@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 
+  preco: 
+  obs: MyText
+
+two:
+  data: 
+  preco: 
+  obs: MyText
