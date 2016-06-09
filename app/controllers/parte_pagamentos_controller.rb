@@ -69,6 +69,6 @@ class PartePagamentosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def parte_pagamento_params
-      params.require(:parte_pagamento).permit(:quantia, :forma_pagamento_id)
+      params.require(:parte_pagamento).permit(:quantia, :forma_pagamento_id, :venda_id)
     end
 end

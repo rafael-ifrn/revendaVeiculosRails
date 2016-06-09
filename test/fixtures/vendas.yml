@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 
+  desconto: 
+  comissao: 
+  obs: 
+  status: 1
+
+two:
+  data: 
+  desconto: 
+  comissao: 
+  obs: 
+  status: 1

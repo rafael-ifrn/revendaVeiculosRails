@@ -74,6 +74,28 @@ pt:
    title: "Detalhe da Compra"
    edit: 'Editar'
 
+ vendas:
+  index:
+   title: Venda
+  new:
+   title: Cadastro da Venda
+  edit:
+   title: Editar Venda
+  show:
+   title: "Detalhe da Venda"
+   edit: 'Editar'
+
+ veiculos:
+  index:
+   title: Veículo
+  new:
+   title: Cadastro do Veículo
+  edit:
+   title: Editar Veículo
+  show:
+   title: "Detalhe do Veículo"
+   edit: 'Editar'
+
  links:
   back: Voltar
   show: Detalhar
@@ -109,6 +131,8 @@ pt:
    forma_pagamento: Forma de pagamento
    parte_pagamento: Parte do pagamento
    compra: Compra
+   Venda: Venda
+   veiculo: Veículo
   attributes:
    fabricante:
     descricao: Descrição
@@ -130,5 +154,17 @@ pt:
     data: Data
     preco: Preço
     obs: Observação
+   venda:
+    data: Data
+    porcentagem: Porcentagem
+    comissao: Comissão
+    status: Status
+    obs: Observação
+   veiculo:
+    anoFabricacao: Ano de Fabricação
+    chassi: Chassi
+    placa: Placa
+    cilindradas: Cilindradas
+    foto: Foto
 
 

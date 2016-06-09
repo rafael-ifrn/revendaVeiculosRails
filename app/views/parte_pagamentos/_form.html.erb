@@ -38,6 +38,17 @@
     <div class="row">
       <div class="col-md-3"></div>
       <div class="col-md-6">
+        <div class="form-group <%= (@parte_pagamento.errors.has_key? :venda_id) ? "has-error" : ""  %>">
+          <%= f.label :venda_id %><br>
+          <%= f.select(:venda_id, Venda.all.collect {|a| [(a.obs) , a.id]}) %>
+          <%= bootstrap_erro @parte_pagamento, :venda_id %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
         <div class="actions text-right">
           <%= f.submit :class => "btn btn-primary" %>
         </div>

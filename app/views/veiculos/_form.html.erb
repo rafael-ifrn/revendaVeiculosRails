@@ -1,0 +1,93 @@
+<%= form_for(@veiculo) do |f| %>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <% if @veiculo.errors.any? %>
+          <div class="alert alert-danger">
+            <%= t 'general.form_error' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@veiculo.errors.has_key? :modelo_id) ? "has-error" : ""  %>">
+          <%= f.label :modelo_id %><br>
+          <%= f.select(:modelo_id, Modelo.all.collect {|a| [(a.fabricante.descricao + ' - ') + a.tipo_veiculo.descricao, a.id]}) %>
+          <%= bootstrap_erro @veiculo, :modelo %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@veiculo.errors.has_key? :anoFabricacao) ? "has-error" : ""  %>">
+          <%= f.label :anoFabricacao, :class => "control-label" %>
+          <%= f.text_field :anoFabricacao, :class => "form-control" %>
+          <%= bootstrap_erro @veiculo, :anoFabricacao %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@veiculo.errors.has_key? :chassi) ? "has-error" : ""  %>">
+          <%= f.label :chassi, :class => "control-label" %>
+          <%= f.text_field :chassi, :class => "form-control" %>
+          <%= bootstrap_erro @veiculo, :chassi %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@veiculo.errors.has_key? :placa) ? "has-error" : ""  %>">
+          <%= f.label :placa, :class => "control-label" %>
+          <%= f.text_field :placa, :class => "form-control" %>
+          <%= bootstrap_erro @veiculo, :placa %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@veiculo.errors.has_key? :cilindradas) ? "has-error" : ""  %>">
+          <%= f.label :cilindradas, :class => "control-label" %>
+          <%= f.text_field :cilindradas, :class => "form-control" %>
+          <%= bootstrap_erro @veiculo, :cilindradas %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@veiculo.errors.has_key? :imagem) ? "has-error" : ""  %>">
+          <%= f.label :imagem, :class => "control-label" %>
+          <%= f.file_field :imagem, :class => "form-control" %>
+          <%= bootstrap_erro @veiculo, :imagem %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="actions text-right">
+          <%= f.submit :class => "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<% end %>

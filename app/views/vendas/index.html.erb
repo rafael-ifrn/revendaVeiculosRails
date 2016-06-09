@@ -1,0 +1,52 @@
+<h2><%= t '.title' %></h2>
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th><%= t 'activerecord.attributes.venda.data' %></th>
+            <th><%= t 'activerecord.attributes.venda.desconto' %></th>
+            <th><%= t 'activerecord.attributes.venda.comissao' %></th>
+            <th><%= t 'activerecord.attributes.venda.obs' %></th>
+            <th><%= t 'activerecord.attributes.venda.status' %></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @vendas.each do |venda| %>
+            <tr>
+              <td><%= link_to venda.data, venda %></td>
+              <td><%= venda.desconto %></td>
+              <td><%= venda.comissao %></td>
+              <td><%= venda.obs %></td>
+              <td><%= venda.status %></td>
+              <td class="text-right">
+                <a href="<%= edit_venda_path(venda) %>" class="btn btn-warning btn-xs">
+                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <%= t('links.edit') %>
+                </a>
+                <a href="<%= venda_path(venda) %>" class="btn btn-danger btn-xs" data-confirm="<%= t('questions.sure') %>" rel="nofollow" data-method="delete" >
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <%= t('links.destroy') %>
+                </a>
+
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<br>
+
+<div class="text-center">
+  <a href="<%= new_venda_path %>" class="btn btn-default">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <%= t('links.new') %>
+  </a>
+</div>

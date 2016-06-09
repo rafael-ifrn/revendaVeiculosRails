@@ -1,0 +1,40 @@
+<h2><%= t '.title' %></h2>
+
+<p>
+  <strong><%= t 'activerecord.attributes.veiculo.anoFabricacao' %>:</strong>
+  <%= @veiculo.anoFabricacao %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.veiculo.chassi' %>:</strong>
+  <%= @veiculo.chassi %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.veiculo.placa' %>:</strong>
+  <%= @veiculo.placa %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.veiculo.cilindradas' %>:</strong>
+  <%= @veiculo.cilindradas %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.veiculo.foto' %>:</strong>
+  <img src="<%= h url_for(:action => "foto", :id => @veiculo.id) %>"/>
+</p>
+
+<div class="text-center">
+  <a href="<%= veiculos_path %>" class="btn btn-default btn-xs">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <%= t('links.back') %>
+  </a>
+  
+  <a href="<%= edit_veiculo_path(@veiculo) %>" class="btn btn-warning btn-xs">
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <%= t('links.edit') %>
+  </a>
+  
+  <a href="<%= veiculo_path(@veiculo) %>" class="btn btn-danger btn-xs" data-confirm="<%= t('questions.sure') %>" rel="nofollow" data-method="delete" >
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <%= t('links.destroy') %>
+  </a>
+</div>

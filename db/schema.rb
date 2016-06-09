@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525120640) do
+ActiveRecord::Schema.define(version: 20160609220454) do
 
   create_table "compras", force: :cascade do |t|
     t.date     "data"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20160525120640) do
     t.text     "obs"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "veiculo_id"
   end
+
+  add_index "compras", ["veiculo_id"], name: "index_compras_on_veiculo_id"
 
   create_table "fabricantes", force: :cascade do |t|
     t.string   "descricao"
@@ -50,10 +53,12 @@ ActiveRecord::Schema.define(version: 20160525120640) do
     t.datetime "updated_at",         null: false
     t.integer  "forma_pagamento_id"
     t.integer  "compra_id"
+    t.integer  "venda_id"
   end
 
   add_index "parte_pagamentos", ["compra_id"], name: "index_parte_pagamentos_on_compra_id"
   add_index "parte_pagamentos", ["forma_pagamento_id"], name: "index_parte_pagamentos_on_forma_pagamento_id"
+  add_index "parte_pagamentos", ["venda_id"], name: "index_parte_pagamentos_on_venda_id"
 
   create_table "tipo_veiculos", force: :cascade do |t|
     t.string   "descricao"
@@ -77,5 +82,34 @@ ActiveRecord::Schema.define(version: 20160525120640) do
   add_index "usuarios", ["cpf"], name: "index_usuarios_on_cpf", unique: true
   add_index "usuarios", ["email"], name: "index_usuarios_on_email", unique: true
   add_index "usuarios", ["login"], name: "index_usuarios_on_login", unique: true
+
+  create_table "veiculos", force: :cascade do |t|
+    t.integer  "anoFabricacao"
+    t.string   "chassi"
+    t.string   "placa"
+    t.integer  "cilindradas"
+    t.binary   "foto"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "fotoMime"
+    t.integer  "modelo_id"
+  end
+
+  add_index "veiculos", ["modelo_id"], name: "index_veiculos_on_modelo_id"
+
+  create_table "vendas", force: :cascade do |t|
+    t.date     "data"
+    t.decimal  "desconto"
+    t.decimal  "comissao"
+    t.text     "obs"
+    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "usuario_id"
+    t.integer  "veiculo_id"
+  end
+
+  add_index "vendas", ["usuario_id"], name: "index_vendas_on_usuario_id"
+  add_index "vendas", ["veiculo_id"], name: "index_vendas_on_veiculo_id"
 
 end

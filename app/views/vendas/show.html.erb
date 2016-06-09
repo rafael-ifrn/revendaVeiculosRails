@@ -1,0 +1,45 @@
+<h2><%= t '.title' %></h2>
+
+<p>
+  <strong><%= t 'activerecord.attributes.venda.vendedor' %>:</strong>
+  <%= @venda.vendedor.nome %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.venda.data' %>:</strong>
+  <%= @venda.data %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.venda.desconto' %>:</strong>
+  <%= @venda.desconto %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.venda.comissao' %>:</strong>
+  <%= @venda.comissao %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.venda.obs' %>:</strong>
+  <%= @venda.obs %>
+</p>
+
+<p>
+  <strong><%= t 'activerecord.attributes.venda.status' %>:</strong>
+  <%= @venda.status %>
+</p>
+
+<div class="text-center">
+  <a href="<%= vendas_path %>" class="btn btn-default btn-xs">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <%= t('links.back') %>
+  </a>
+  
+  <a href="<%= edit_venda_path(@venda) %>" class="btn btn-warning btn-xs">
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <%= t('links.edit') %>
+  </a>
+  
+  <a href="<%= vendas_path(@venda) %>" class="btn btn-danger btn-xs" data-confirm="<%= t('questions.sure') %>" rel="nofollow" data-method="delete" >
+    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <%= t('links.destroy') %>
+  </a>
+</div>
