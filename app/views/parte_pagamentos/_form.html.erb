@@ -29,7 +29,7 @@
       <div class="col-md-6">
         <div class="form-group <%= (@parte_pagamento.errors.has_key? :forma_pagamento_id) ? "has-error" : ""  %>">
           <%= f.label :forma_pagamento_id %><br>
-          <%= f.select(:forma_pagamento_id, FormaPagamento.all.collect {|a| [a.descricao, a.id]}) %>
+          <%= f.select(:forma_pagamento_id, FormaPagamento.all.push(FormaPagamento.new(id: "", descricao: "Escolha a forma de pagamento")).sort{ |x, y| x.id.to_s <=> y.id.to_s}.collect {|a| [a.descricao, a.id]}) %>
           <%= bootstrap_erro @parte_pagamento, :forma_pagamento_id %>
         </div>
       </div>
@@ -40,8 +40,19 @@
       <div class="col-md-6">
         <div class="form-group <%= (@parte_pagamento.errors.has_key? :venda_id) ? "has-error" : ""  %>">
           <%= f.label :venda_id %><br>
-          <%= f.select(:venda_id, Venda.all.collect {|a| [(a.obs) , a.id]}) %>
+          <%= f.select(:venda_id, Venda.all.push(Venda.new({id: "", obs: "Escolha a venda"})).sort{ |x,y| x.id.to_s <=> y.id.to_s}.collect {|a| [(a.obs) , a.id]}) %>
           <%= bootstrap_erro @parte_pagamento, :venda_id %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group <%= (@parte_pagamento.errors.has_key? :compra_id) ? "has-error" : ""  %>">
+          <%= f.label :compra_id %><br>
+          <%= f.select(:compra_id, Compra.all.push(Compra.new({id: "", obs: "Escolha a compra"})).sort { |x,y| x.id.to_s <=> y.id.to_s }.collect {|a| [(a.obs) , a.id]}) %>
+          <%= bootstrap_erro @parte_pagamento, :compra_id %>
         </div>
       </div>
     </div>

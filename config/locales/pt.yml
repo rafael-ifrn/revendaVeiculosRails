@@ -150,6 +150,7 @@ pt:
    parte_pagamento:
     quantia: Quantia
     forma_pagamento_id: Forma de pagamento
+    venda_id: Venda
    compra:
     data: Data
     preco: Preço

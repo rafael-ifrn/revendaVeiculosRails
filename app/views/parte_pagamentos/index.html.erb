@@ -11,7 +11,8 @@
           <tr>
             <th><%= t 'activerecord.attributes.parte_pagamento.quantia' %></th>
             <th><%= t 'activerecord.attributes.parte_pagamento.forma_pagamento_id' %></th>
-            <th></th>
+            <th><%= t 'activerecord.attributes.parte_pagamento.venda' %></th>
+            <th><%= t 'activerecord.attributes.parte_pagamento.compra' %></th>
           </tr>
         </thead>
 
@@ -20,6 +21,8 @@
             <tr>
               <td><%= link_to parte_pagamento.quantia, parte_pagamento %></td>
               <td><%= FormaPagamento.find(parte_pagamento.forma_pagamento_id).descricao %></td>
+              <td><%= parte_pagamento.venda_id ? Venda.find(parte_pagamento.venda_id).obs : "--" %></td>
+              <td><%= parte_pagamento.compra_id ? Compra.find(parte_pagamento.compra_id).obs : "--" %></td>
               <td class="text-right">
                 <a href="<%= edit_parte_pagamento_path(parte_pagamento) %>" class="btn btn-warning btn-xs">
                   <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <%= t('links.edit') %>

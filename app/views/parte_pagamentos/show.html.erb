@@ -10,6 +10,11 @@
   <%= @parte_pagamento.forma_pagamento.descricao %>
 </p>
 
+<p>
+  <strong><%= t 'activerecord.attributes.parte_pagamento.compra_id' %>:</strong>
+  <%= @parte_pagamento.compra ? @parte_pagamento.compra.obs : "--" %>
+</p>
+
 <div class="text-center">
 	<a href="<%= parte_pagamentos_path %>" class="btn btn-default btn-xs">
 	  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <%= t('links.back') %>
