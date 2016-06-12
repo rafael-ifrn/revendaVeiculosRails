@@ -1,46 +1,31 @@
 <h2><%= t '.title' %></h2>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-8">
+      <%= form_tag "/veiculos/table", method: :get, remote: true, class: "form-inline" do %>
+        <div class="form-group">
+          <%= text_field_tag :valor, nil, :placeholder => "placa chassi modelo", :class => "form-control  input-sm" %>
+          <%= submit_tag :buscar, :class => "btn btn-primary", :id => "btn_buscar", :value => "Buscar" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
 
 <div class="container-fluid">
 
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-      <table class="table table-condensed table-hover">
-        <thead>
-          <tr>
-            <th><%= t 'activerecord.attributes.veiculo.chassi' %></th>
-            <th><%= t 'activerecord.attributes.veiculo.placa' %></th>
-            <th><%= t 'activerecord.attributes.veiculo.modelo_id' %></th>
-            <th><%= t 'activerecord.attributes.veiculo.anoFabricacao' %></th>
-            <th><%= t 'activerecord.attributes.veiculo.cilindradas' %></th>
-            <th><%= t 'activerecord.attributes.veiculo.foto' %></th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @veiculos.each do |veiculo| %>
-            <tr>
-              <td><%= link_to veiculo.chassi, veiculo%></td>
-              <td><%= veiculo.placa %></td>
-              <td><%= Modelo.find(veiculo.modelo_id).fabricante.descricao %> - <%= Modelo.find(veiculo.modelo_id).tipo_veiculo.descricao %></td>
-              <td><%= veiculo.anoFabricacao %></td>
-              <td><%= veiculo.cilindradas %></td>
-              <td><img class="veiculo" src="<%= h url_for(:action => "foto", :id => veiculo.id) %>"/></td>
-              <td class="text-right">
-                <a href="<%= edit_veiculo_path(veiculo) %>" class="btn btn-warning btn-xs">
-                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <%= t('links.edit') %>
-                </a>
-                <a href="<%= veiculo_path(veiculo) %>" class="btn btn-danger btn-xs" data-confirm="<%= t('questions.sure') %>" rel="nofollow" data-method="delete" >
-                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> <%= t('links.destroy') %>
-                </a>
-
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <div id="table">
+        <%= render 'table' %>
+      </div>
     </div>
   </div>
 </div>
@@ -53,3 +38,12 @@
     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <%= t('links.new') %>
   </a>
 </div>
+
+<% content_for :js do %>
+  $( function () {
+    $('form').bind('ajax:complete', function(xhr, result) {
+      var $div = $('#table').empty();
+      $div.append(result.responseText);
+    });
+  });
+<% end %>

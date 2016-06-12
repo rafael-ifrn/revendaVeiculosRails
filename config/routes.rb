@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'veiculos/table' => 'veiculos#table'
   resources :veiculos
   get 'veiculos/:id/foto' => 'veiculos#foto'
   resources :vendas

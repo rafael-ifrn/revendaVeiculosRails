@@ -58,12 +58,23 @@ class VeiculosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to veiculos_url, notice: t('message.destroy_success') }
       format.json { head :no_content }
+      formar.js
     end
   end
 
   def foto
     @veiculo = Veiculo.find(params[:id])
     send_data(@veiculo.foto,:type=>@veiculo.fotoMime,:disposition=>"inline")
+  end
+
+  def table
+#    @veiculos = Veiculo.where("chassi LIKE :chassi OR placa LIKE :placa",
+#  {:chassi => "%8%", :placa => "%8%"})
+    @veiculos = Veiculo.where("chassi LIKE :chassi OR placa LIKE :placa",
+      {:chassi => "%#{params[:valor]}%", 
+      :placa => "%#{params[:valor]}%"})
+    #@veiculos = Veiculo.all
+    render layout: false
   end
 
 
