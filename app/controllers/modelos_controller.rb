@@ -28,7 +28,7 @@ class ModelosController < ApplicationController
 
     respond_to do |format|
       if @modelo.save
-        format.html { redirect_to @modelo, notice: 'Modelo was successfully created.' }
+        format.html { redirect_to @modelo, notice: t('message.create_success') }
         format.json { render :show, status: :created, location: @modelo }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ModelosController < ApplicationController
   def update
     respond_to do |format|
       if @modelo.update(modelo_params)
-        format.html { redirect_to @modelo, notice: 'Modelo was successfully updated.' }
+        format.html { redirect_to @modelo, notice: t('message.update_success') }
         format.json { render :show, status: :ok, location: @modelo }
       else
         format.html { render :edit }
@@ -56,21 +56,24 @@ class ModelosController < ApplicationController
   def destroy
     @modelo.destroy
     respond_to do |format|
-      format.html { redirect_to modelos_url, notice: 'Modelo was successfully destroyed.' }
+      format.html { redirect_to modelos_url, notice: t('message.destroy_success') }
       format.json { head :no_content }
+      format.js
     end
   end
+
+  # GET /modelos/table
+  def table
+    @modelos = Modelo.all
+    render layout: false
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_modelo
       @modelo = Modelo.find(params[:id])
-    end
-    def set_fabricante
-      @modelo.fabricante = Fabricante.find(params[:fabricante_id])
-    end
-    def set_tipo_veiculo
-      @modelo.tipoVeiculo = TipoVeiculo.find(params[:tipo_veiculo_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

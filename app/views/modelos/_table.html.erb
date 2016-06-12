@@ -1,0 +1,37 @@
+     <table class="table table-condensed table-hover">
+        <thead>
+          <tr>
+            <th>Descrição</th>
+            <th>Fabricante</th>
+            <th>Tipo</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @modelos.each do |modelo| %>
+            <tr id="<%= modelo.id %>">
+              <td><%= link_to modelo.descricao, modelo %></td>
+              <td><%= modelo.fabricante_id ? Fabricante.find(modelo.fabricante_id).descricao : "" %></td>
+              <td><%= modelo.tipo_veiculo_id ? TipoVeiculo.find(modelo.tipo_veiculo_id).descricao  : "" %></td>
+              <td class="text-right">
+                
+                <a href="<%= edit_modelo_path(modelo) %>" class="btn btn-warning btn-xs">
+                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> <%= t('links.edit') %>
+                </a>
+
+                <%= link_to raw("<span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>" + t('links.destroy')),
+                  modelo,
+                  method: :delete,
+                  remote: true,
+                  data: {confirm: t('questions.sure')},
+                  class: "btn btn-danger btn-xs"
+                   %>
+
+              </td>
+            </tr>
+          <% end %>
+          
+        </tbody>
+      </table>
+ 
